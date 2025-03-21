@@ -40,7 +40,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          ? "bg-background/90 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -69,7 +69,10 @@ export function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <Button className="rounded-full px-6" asChild>
+          <Button 
+            className="rounded-full px-6 bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md" 
+            asChild
+          >
             <Link to="/rooms">Забронировать</Link>
           </Button>
         </nav>
@@ -78,7 +81,7 @@ export function Navbar() {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="md:hidden bg-hotel-charcoal/10 hover:bg-hotel-charcoal/20"
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -114,7 +117,11 @@ export function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <Button className="mt-4 rounded-full" onClick={closeMobileMenu} asChild>
+            <Button 
+              className="mt-4 rounded-full bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md" 
+              onClick={closeMobileMenu} 
+              asChild
+            >
               <Link to="/rooms">Забронировать</Link>
             </Button>
           </nav>
