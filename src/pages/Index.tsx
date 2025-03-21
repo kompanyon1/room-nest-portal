@@ -25,7 +25,7 @@ const Index = () => {
         subtitle="Изысканное воплощение комфорта и роскоши в самом сердце города. Откройте для себя новый уровень гостеприимства."
         buttonText="Забронировать номер"
         buttonLink="/rooms"
-        imageSrc="/hero-image.jpg"
+        imageSrc="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1374&auto=format&fit=crop"
         showStats={true}
       />
 
@@ -37,7 +37,7 @@ const Index = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img 
-                    src="/about-image.jpg" 
+                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1470&auto=format&fit=crop" 
                     alt="Hotel Elegant Interior" 
                     className="w-full h-full object-cover"
                   />
@@ -120,25 +120,23 @@ const Index = () => {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeInStagger childClassName="bg-card border border-border rounded-xl p-8 h-full flex flex-col">
-              <TestimonialCard 
-                quote="Прекрасный отель с безупречным сервисом. Номера оформлены со вкусом, а персонал всегда готов помочь. Обязательно вернусь снова!"
-                author="Анна К."
-                role="Бизнес-путешественник"
-              />
-              <TestimonialCard 
-                quote="Останавливались с семьей на выходные. Дети были в восторге от просторного номера, а мы оценили внимание к деталям и прекрасное расположение."
-                author="Сергей и Мария В."
-                role="Семейный отдых"
-              />
-              <TestimonialCard 
-                quote="Идеальное место для романтического уикенда. Тихие и уютные номера, изысканная кухня и атмосфера настоящей роскоши."
-                author="Ольга Д."
-                role="Праздничный отдых"
-              />
-            </FadeInStagger>
-          </div>
+          <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <TestimonialCard 
+              quote="Прекрасный отель с безупречным сервисом. Номера оформлены со вкусом, а персонал всегда готов помочь. Обязательно вернусь снова!"
+              author="Анна К."
+              role="Бизнес-путешественник"
+            />
+            <TestimonialCard 
+              quote="Останавливались с семьей на выходные. Дети были в восторге от просторного номера, а мы оценили внимание к деталям и прекрасное расположение."
+              author="Сергей и Мария В."
+              role="Семейный отдых"
+            />
+            <TestimonialCard 
+              quote="Идеальное место для романтического уикенда. Тихие и уютные номера, изысканная кухня и атмосфера настоящей роскоши."
+              author="Ольга Д."
+              role="Праздничный отдых"
+            />
+          </FadeInStagger>
         </div>
       </section>
 
@@ -173,10 +171,10 @@ const Index = () => {
 
 function TestimonialCard({ quote, author, role }: { quote: string; author: string; role: string }) {
   return (
-    <div className="bg-card border border-border rounded-xl p-8 h-full flex flex-col">
-      <div className="text-3xl text-hotel-brown mb-4">"</div>
-      <p className="text-muted-foreground mb-6 flex-grow">{quote}</p>
-      <div>
+    <div className="bg-white/90 border border-border rounded-xl p-8 h-full flex flex-col shadow-sm">
+      <div className="text-4xl text-hotel-brown mb-4">"</div>
+      <p className="text-muted-foreground mb-6 flex-grow italic">{quote}</p>
+      <div className="border-t pt-4 mt-auto">
         <div className="font-medium">{author}</div>
         <div className="text-sm text-muted-foreground">{role}</div>
       </div>
