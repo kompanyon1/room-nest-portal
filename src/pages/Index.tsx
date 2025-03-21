@@ -21,7 +21,7 @@ const Index = () => {
       <Navbar />
       
       <HeroSection 
-        title="Добро пожаловать в отель Элегант"
+        title="Добро пожаловать в отель 236 метров"
         subtitle="Изысканное воплощение комфорта и роскоши в самом сердце города. Откройте для себя новый уровень гостеприимства."
         buttonText="Забронировать номер"
         buttonLink="/rooms"
@@ -38,7 +38,7 @@ const Index = () => {
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1470&auto=format&fit=crop" 
-                    alt="Hotel Elegant Interior" 
+                    alt="Hotel 236 meters Interior" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -55,7 +55,7 @@ const Index = () => {
                   Роскошь в каждой детали
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Отель Элегант — это не просто место для ночлега, а настоящий оазис комфорта и изысканности. Каждый номер тщательно продуман до мельчайших деталей, чтобы обеспечить незабываемый опыт пребывания для наших гостей.
+                  Отель 236 метров — это не просто место для ночлега, а настоящий оазис комфорта и изысканности. Каждый номер тщательно продуман до мельчайших деталей, чтобы обеспечить незабываемый опыт пребывания для наших гостей.
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   Наш отель сочетает в себе классическую элегантность и современные удобства, создавая идеальную атмосферу как для деловых путешественников, так и для туристов, ищущих роскошный отдых в сердце города.
@@ -149,7 +149,7 @@ const Index = () => {
                 Готовы забронировать идеальный отдых?
               </h2>
               <p className="text-white/80 mb-10 text-lg">
-                Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле Элегант.
+                Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле 236 метров.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="rounded-full px-8 bg-white text-hotel-charcoal hover:bg-hotel-beige" asChild>

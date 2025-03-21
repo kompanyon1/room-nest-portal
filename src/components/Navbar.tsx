@@ -50,7 +50,7 @@ export function Navbar() {
           className="text-2xl font-serif font-semibold tracking-tight"
           onClick={closeMobileMenu}
         >
-          Элегант
+          236 метров
         </Link>
 
         {/* Desktop Navigation */}

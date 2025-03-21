@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { FadeIn } from "./FadeIn";
@@ -12,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <FadeIn delay={0.1}>
             <div>
-              <h3 className="font-serif text-2xl font-semibold mb-4">Элегант</h3>
+              <h3 className="font-serif text-2xl font-semibold mb-4">236 метров</h3>
               <p className="text-muted-foreground mt-4 mb-6">
                 Роскошный отель, где каждая деталь создана для незабываемого отдыха и комфорта наших гостей.
               </p>
@@ -64,10 +63,10 @@ export function Footer() {
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 mr-3 text-hotel-brown" />
                   <a
-                    href="mailto:info@elegant.ru"
+                    href="mailto:info@236meters.ru"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    info@elegant.ru
+                    info@236meters.ru
                   </a>
                 </li>
               </ul>
@@ -149,7 +148,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-hotel-taupe/20 text-center text-muted-foreground">
-          <p>&copy; {currentYear} Отель Элегант. Все права защищены.</p>
+          <p>&copy; {currentYear} Отель 236 метров. Все права защищены.</p>
         </div>
       </div>
     </footer>
