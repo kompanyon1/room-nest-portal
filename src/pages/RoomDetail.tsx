@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Bed, Users, AreaIcon, Check } from "lucide-react";
+import { ArrowLeft, Bed, Users, Square, Check } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -122,7 +122,7 @@ const RoomDetail = () => {
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-center p-4 bg-hotel-beige rounded-lg">
-                    <AreaIcon className="h-6 w-6 text-hotel-brown mb-2" />
+                    <Square className="h-6 w-6 text-hotel-brown mb-2" />
                     <span className="text-sm text-muted-foreground text-center">{room.size}</span>
                   </div>
                 </div>

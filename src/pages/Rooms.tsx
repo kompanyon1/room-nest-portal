@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { RoomCard } from "@/components/RoomCard";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-import { Bed, Users, SquareFootIcon, Wifi, Coffee, Tv } from "lucide-react";
+import { Bed, Users, Square, Wifi, Coffee, Tv } from "lucide-react";
 import { rooms } from "@/lib/rooms";
 
 const Rooms = () => {
@@ -40,7 +40,7 @@ const Rooms = () => {
                 Количество гостей
               </Button>
               <Button variant="outline" size="sm" className="rounded-full">
-                <SquareFootIcon className="mr-2 h-4 w-4" />
+                <Square className="mr-2 h-4 w-4" />
                 Площадь
               </Button>
               <Button variant="outline" size="sm" className="rounded-full">
