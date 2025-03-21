@@ -39,9 +39,9 @@ export const rooms: Room[] = [
       "Hair dryer"
     ],
     images: [
-      "/room-1-1.jpg",
-      "/room-1-2.jpg",
-      "/room-1-3.jpg"
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1374&auto=format&fit=crop"
     ],
     featured: true
   },
@@ -71,9 +71,9 @@ export const rooms: Room[] = [
       "Premium toiletries"
     ],
     images: [
-      "/room-2-1.jpg",
-      "/room-2-2.jpg",
-      "/room-2-3.jpg"
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=1374&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1374&auto=format&fit=crop"
     ],
     featured: true
   },
@@ -101,9 +101,9 @@ export const rooms: Room[] = [
       "Tea/coffee maker"
     ],
     images: [
-      "/room-3-1.jpg",
-      "/room-3-2.jpg",
-      "/room-3-3.jpg"
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1457&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=1374&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1470&auto=format&fit=crop"
     ],
     featured: false
   },
@@ -131,9 +131,9 @@ export const rooms: Room[] = [
       "Children's amenities"
     ],
     images: [
-      "/room-4-1.jpg",
-      "/room-4-2.jpg",
-      "/room-4-3.jpg"
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1470&auto=format&fit=crop"
     ],
     featured: false
   },
@@ -166,9 +166,9 @@ export const rooms: Room[] = [
       "Bathrobes and slippers"
     ],
     images: [
-      "/room-5-1.jpg",
-      "/room-5-2.jpg",
-      "/room-5-3.jpg"
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1450&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=1374&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1374&auto=format&fit=crop"
     ],
     featured: true
   }
