@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -62,15 +61,15 @@ export function Navbar() {
               className={({ isActive }) =>
                 cn(
                   "text-base transition-colors hover:text-foreground/80",
-                  isActive ? "text-foreground font-medium" : "text-foreground/60"
+                  isActive ? "text-black font-medium" : "text-black"
                 )
               }
             >
               {link.label}
             </NavLink>
           ))}
-          <Button 
-            className="rounded-full px-6 bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md" 
+          <Button
+            className="rounded-full px-6 bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md"
             asChild
           >
             <Link to="/rooms">Забронировать</Link>
@@ -109,7 +108,9 @@ export function Navbar() {
                 className={({ isActive }) =>
                   cn(
                     "text-xl transition-colors",
-                    isActive ? "text-foreground font-medium" : "text-muted-foreground"
+                    isActive
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground"
                   )
                 }
                 onClick={closeMobileMenu}
@@ -117,9 +118,9 @@ export function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <Button 
-              className="mt-4 rounded-full bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md" 
-              onClick={closeMobileMenu} 
+            <Button
+              className="mt-4 rounded-full bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md"
+              onClick={closeMobileMenu}
               asChild
             >
               <Link to="/rooms">Забронировать</Link>

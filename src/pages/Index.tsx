@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -19,13 +18,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      <HeroSection 
+
+      <HeroSection
         title="Добро пожаловать в отель 236 метров"
         subtitle="Изысканное воплощение комфорта и роскоши в самом сердце города. Откройте для себя новый уровень гостеприимства."
         buttonText="Забронировать номер"
         buttonLink="/rooms"
-        imageSrc="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1374&auto=format&fit=crop"
+        imageSrc="street.jpg"
         showStats={true}
       />
 
@@ -36,16 +35,16 @@ const Index = () => {
             <FadeIn>
               <div className="relative">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1470&auto=format&fit=crop" 
-                    alt="Hotel 236 meters Interior" 
+                  <img
+                    src="corp2.jpg"
+                    alt="Hotel 236 meters Interior"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-hotel-brown rounded-br-xl -z-10"></div>
               </div>
             </FadeIn>
-            
+
             <FadeIn delay={0.2}>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
@@ -55,10 +54,16 @@ const Index = () => {
                   Роскошь в каждой детали
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Отель 236 метров — это не просто место для ночлега, а настоящий оазис комфорта и изысканности. Каждый номер тщательно продуман до мельчайших деталей, чтобы обеспечить незабываемый опыт пребывания для наших гостей.
+                  Отель 236 метров — это не просто место для ночлега, а
+                  настоящий оазис комфорта и изысканности. Каждый номер
+                  тщательно продуман до мельчайших деталей, чтобы обеспечить
+                  незабываемый опыт пребывания для наших гостей.
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Наш отель сочетает в себе классическую элегантность и современные удобства, создавая идеальную атмосферу как для деловых путешественников, так и для туристов, ищущих роскошный отдых в сердце города.
+                  Наш отель сочетает в себе классическую элегантность и
+                  современные удобства, создавая идеальную атмосферу как для
+                  деловых путешественников, так и для туристов, ищущих роскошный
+                  отдых в сердце города.
                 </p>
                 <Button className="rounded-full px-8" asChild>
                   <Link to="/about">Узнать больше</Link>
@@ -81,7 +86,8 @@ const Index = () => {
                 Выберите идеальный номер для вашего пребывания
               </h2>
               <p className="text-muted-foreground">
-                От стандартных номеров до роскошных люксов — мы предлагаем размещение, которое удовлетворит все ваши потребности.
+                От стандартных номеров до роскошных люксов — мы предлагаем
+                размещение, которое удовлетворит все ваши потребности.
               </p>
             </div>
           </FadeIn>
@@ -121,17 +127,17 @@ const Index = () => {
           </FadeIn>
 
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard 
+            <TestimonialCard
               quote="Прекрасный отель с безупречным сервисом. Номера оформлены со вкусом, а персонал всегда готов помочь. Обязательно вернусь снова!"
               author="Анна К."
               role="Бизнес-путешественник"
             />
-            <TestimonialCard 
+            <TestimonialCard
               quote="Останавливались с семьей на выходные. Дети были в восторге от просторного номера, а мы оценили внимание к деталям и прекрасное расположение."
               author="Сергей и Мария В."
               role="Семейный отдых"
             />
-            <TestimonialCard 
+            <TestimonialCard
               quote="Идеальное место для романтического уикенда. Тихие и уютные номера, изысканная кухня и атмосфера настоящей роскоши."
               author="Ольга Д."
               role="Праздничный отдых"
@@ -149,13 +155,23 @@ const Index = () => {
                 Готовы забронировать идеальный отдых?
               </h2>
               <p className="text-white/80 mb-10 text-lg">
-                Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле 236 метров.
+                Свяжитесь с нами сегодня и позвольте нам помочь спланировать
+                ваше идеальное пребывание в отеле 236 метров.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="rounded-full px-8 bg-white text-hotel-charcoal hover:bg-hotel-beige" asChild>
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 bg-white text-hotel-charcoal hover:bg-hotel-beige"
+                  asChild
+                >
                   <Link to="/rooms">Забронировать номер</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full px-8 border-white text-white hover:bg-white/10" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 border-white text-white hover:bg-white/10"
+                  asChild
+                >
                   <Link to="/contact">Связаться с нами</Link>
                 </Button>
               </div>
@@ -169,7 +185,15 @@ const Index = () => {
   );
 };
 
-function TestimonialCard({ quote, author, role }: { quote: string; author: string; role: string }) {
+function TestimonialCard({
+  quote,
+  author,
+  role,
+}: {
+  quote: string;
+  author: string;
+  role: string;
+}) {
   return (
     <div className="bg-white/90 border border-border rounded-xl p-8 h-full flex flex-col shadow-sm">
       <div className="text-4xl text-hotel-brown mb-4">"</div>

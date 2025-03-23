@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import { FadeIn } from "./FadeIn";
 
 export function Footer() {
@@ -11,9 +18,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <FadeIn delay={0.1}>
             <div>
-              <h3 className="font-serif text-2xl font-semibold mb-4">236 метров</h3>
+              <h3 className="font-serif text-2xl font-semibold mb-4">
+                236 метров
+              </h3>
               <p className="text-muted-foreground mt-4 mb-6">
-                Роскошный отель, где каждая деталь создана для незабываемого отдыха и комфорта наших гостей.
+                Гостиница, где каждая деталь создана для незабываемого отдыха и
+                комфорта наших гостей.
               </p>
               <div className="flex space-x-4">
                 <a
@@ -47,9 +57,7 @@ export function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <MapPin className="h-5 w-5 mr-3 text-hotel-brown mt-0.5" />
-                  <span className="text-muted-foreground">
-                    ул. Пушкина 10, Москва, Россия, 123456
-                  </span>
+                  <span className="text-muted-foreground">п. Ильинка</span>
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 mr-3 text-hotel-brown" />
@@ -75,7 +83,9 @@ export function Footer() {
 
           <FadeIn delay={0.3}>
             <div>
-              <h4 className="font-serif text-lg font-medium mb-4">Быстрые ссылки</h4>
+              <h4 className="font-serif text-lg font-medium mb-4">
+                Быстрые ссылки
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <Link
@@ -125,7 +135,8 @@ export function Footer() {
             <div>
               <h4 className="font-serif text-lg font-medium mb-4">Новости</h4>
               <p className="text-muted-foreground mb-4">
-                Подпишитесь на нашу рассылку, чтобы получать эксклюзивные предложения и новости.
+                Подпишитесь на нашу рассылку, чтобы получать эксклюзивные
+                предложения и новости.
               </p>
               <form className="mt-4">
                 <div className="flex">
