@@ -16,7 +16,7 @@ const About = () => {
       
       <HeroSection 
         title="О нашем отеле"
-        subtitle="Откройте для себя историю и философию отеля Элегант — места, где роскошь встречается с исключительным сервисом."
+        subtitle="Откройте для себя историю и философию отеля 236 метров — места, где роскошь встречается с исключительным сервисом."
         imageSrc="/about-hero.jpg"
         minHeight="min-h-[60vh]"
       />
@@ -48,13 +48,13 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Отель Элегант начал свою историю в 1998 году, когда историческое здание начала 20 века было реставрировано с тщательным вниманием к оригинальным архитектурным деталям и в то же время оборудовано всеми современными удобствами.
+                    Отель 236 метров начал свою историю в 1998 году, когда историческое здание начала 20 века было реставрировано с тщательным вниманием к оригинальным архитектурным деталям и в то же время оборудовано всеми современными удобствами.
                   </p>
                   <p>
                     На протяжении более двух десятилетий мы совершенствовали искусство гостеприимства, создавая атмосферу, где каждый гость чувствует себя как дома, но в окружении исключительной красоты и комфорта.
                   </p>
                   <p>
-                    Сегодня отель Элегант остается символом утонченного гостеприимства, где традиции встречаются с инновациями, создавая незабываемые впечатления для каждого гостя.
+                    Сегодня отель 236 метров остается символом утонченного гостеприимства, где традиции встречаются с инновациями, создавая незабываемые впечатления для каждого гостя.
                   </p>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const About = () => {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <FadeInStagger childClassName="bg-background p-8 rounded-xl border border-border h-full">
+            <FadeInStagger>
               <ValueCard 
                 title="Внимание к деталям"
                 description="Мы верим, что именно детали создают незабываемые впечатления. От качества постельного белья до температуры вашего утреннего кофе — мы обращаем внимание на каждую мелочь."
@@ -162,7 +162,7 @@ const About = () => {
           </FadeIn>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <FadeInStagger childClassName="text-center">
+            <FadeInStagger>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-white/10 rounded-full">
                   <img src="/award-1.svg" alt="Award" className="w-8 h-8" />
@@ -219,7 +219,7 @@ function TeamMember({ name, position, image }: { name: string; position: string;
           alt={name} 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
       </div>
       <h3 className="font-serif text-xl font-medium mb-1">{name}</h3>
       <p className="text-muted-foreground">{position}</p>
