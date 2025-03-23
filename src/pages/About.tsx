@@ -81,7 +81,7 @@ const About = () => {
             </div>
           </FadeIn>
 
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row justify-center gap-8 max-w-5xl mx-auto">
             <FadeInStagger direction="right" distance={30}>
               <ValueCard 
                 title="Внимание к деталям"
@@ -203,7 +203,7 @@ const About = () => {
 
 function ValueCard({ title, description }: { title: string; description: string }) {
   return (
-    <div className="bg-background p-8 rounded-xl border border-border flex-1 h-full">
+    <div className="bg-background p-8 rounded-xl border border-border max-w-xs h-full">
       <h3 className="font-serif text-xl font-medium mb-4">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
     </div>
