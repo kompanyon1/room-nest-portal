@@ -172,7 +172,7 @@ const About = () => {
           </FadeIn>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <FadeInStagger childClassName="text-center">
+            <FadeInStagger>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-white/10 rounded-full">
                   <img src="/award-1.svg" alt="Award" className="w-8 h-8" />
@@ -227,7 +227,7 @@ function ValueCard({
   description: string;
 }) {
   return (
-    <div className="bg-background p-8 rounded-xl border border-border h-full">
+    <div className="bg-background p-8 rounded-xl border border-border max-w-xs h-full">
       <h3 className="font-serif text-xl font-medium mb-4">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
     </div>
@@ -251,7 +251,7 @@ function TeamMember({
           alt={name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
       </div>
       <h3 className="font-serif text-xl font-medium mb-1">{name}</h3>
       <p className="text-muted-foreground">{position}</p>
