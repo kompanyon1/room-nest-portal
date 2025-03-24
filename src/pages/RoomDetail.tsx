@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Bed, Users, Square, Check } from "lucide-react";
@@ -14,7 +13,7 @@ const RoomDetail = () => {
   const [room, setRoom] = useState<Room | null>(null);
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(selectedImage);
   useEffect(() => {
     window.scrollTo(0, 0);
     if (id) {
@@ -44,8 +43,12 @@ const RoomDetail = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
         <div className="container mx-auto px-4 md:px-6 pt-32 pb-20 text-center">
-          <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-6">Номер не найден</h1>
-          <p className="text-muted-foreground mb-8">Извините, но запрашиваемый номер не существует.</p>
+          <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-6">
+            Номер не найден
+          </h1>
+          <p className="text-muted-foreground mb-8">
+            Извините, но запрашиваемый номер не существует.
+          </p>
           <Button asChild>
             <Link to="/rooms">Вернуться к списку номеров</Link>
           </Button>
@@ -58,12 +61,12 @@ const RoomDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn>
-            <Link 
-              to="/rooms" 
+            <Link
+              to="/rooms"
               className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -75,9 +78,9 @@ const RoomDetail = () => {
             <div>
               <FadeIn>
                 <div className="aspect-[4/3] rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src={selectedImage || "/placeholder.svg"} 
-                    alt={room.name} 
+                  <img
+                    src={selectedImage || "/placeholder.svg"}
+                    alt={room.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -86,15 +89,15 @@ const RoomDetail = () => {
                     <button
                       key={index}
                       className={`aspect-[4/3] rounded-md overflow-hidden border-2 transition-all ${
-                        selectedImage === image 
-                          ? "border-hotel-brown" 
+                        selectedImage === image
+                          ? "border-hotel-brown"
                           : "border-transparent hover:border-hotel-taupe"
                       }`}
                       onClick={() => setSelectedImage(image)}
                     >
-                      <img 
-                        src={image} 
-                        alt={`${room.name} view ${index + 1}`} 
+                      <img
+                        src={image}
+                        alt={`${room.name} view ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
                     </button>
@@ -102,40 +105,55 @@ const RoomDetail = () => {
                 </div>
               </FadeIn>
             </div>
-            
+
             <div>
               <FadeInStagger>
                 <div className="mb-6">
-                  <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-4">{room.name}</h1>
+                  <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+                    {room.name}
+                  </h1>
                   <p className="text-muted-foreground">{room.description}</p>
                 </div>
-                
+
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   <div className="flex flex-col items-center justify-center p-4 bg-hotel-beige rounded-lg">
                     <Bed className="h-6 w-6 text-hotel-brown mb-2" />
-                    <span className="text-sm text-muted-foreground text-center">{room.beds}</span>
+                    <span className="text-sm text-muted-foreground text-center">
+                      {room.beds}
+                    </span>
                   </div>
                   <div className="flex flex-col items-center justify-center p-4 bg-hotel-beige rounded-lg">
                     <Users className="h-6 w-6 text-hotel-brown mb-2" />
                     <span className="text-sm text-muted-foreground text-center">
-                      {room.capacity} {room.capacity === 1 ? 'гость' : room.capacity < 5 ? 'гостя' : 'гостей'}
+                      {room.capacity}{" "}
+                      {room.capacity === 1
+                        ? "гость"
+                        : room.capacity < 5
+                        ? "гостя"
+                        : "гостей"}
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-center p-4 bg-hotel-beige rounded-lg">
                     <Square className="h-6 w-6 text-hotel-brown mb-2" />
-                    <span className="text-sm text-muted-foreground text-center">{room.size}</span>
+                    <span className="text-sm text-muted-foreground text-center">
+                      {room.size}
+                    </span>
                   </div>
                 </div>
-                
+
                 <div className="mb-8">
-                  <h3 className="text-xl font-serif font-medium mb-4">Описание</h3>
+                  <h3 className="text-xl font-serif font-medium mb-4">
+                    Описание
+                  </h3>
                   <p className="text-muted-foreground whitespace-pre-line">
                     {room.fullDescription}
                   </p>
                 </div>
-                
+
                 <div className="mb-8">
-                  <h3 className="text-xl font-serif font-medium mb-4">Удобства</h3>
+                  <h3 className="text-xl font-serif font-medium mb-4">
+                    Удобства
+                  </h3>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                     {room.amenities.map((amenity, index) => (
                       <div key={index} className="flex items-center">
@@ -145,17 +163,21 @@ const RoomDetail = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="p-6 bg-hotel-beige rounded-xl">
                   <div className="flex items-baseline justify-between mb-4">
-                    <div className="text-3xl font-semibold">{room.currency}{room.price}</div>
+                    <div className="text-3xl font-semibold">
+                      {room.currency}
+                      {room.price}
+                    </div>
                     <div className="text-sm text-muted-foreground">за ночь</div>
                   </div>
                   <Button className="w-full mb-4" size="lg">
                     Забронировать
                   </Button>
                   <p className="text-xs text-muted-foreground text-center">
-                    *Цены могут измениться в зависимости от дат и специальных предложений
+                    *Цены могут измениться в зависимости от дат и специальных
+                    предложений
                   </p>
                 </div>
               </FadeInStagger>

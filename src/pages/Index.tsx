@@ -36,7 +36,7 @@ const Index = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img
-                    src="corp2.jpg"
+                    src="kaka.jpg"
                     alt="Hotel 236 meters Interior"
                     className="w-full h-full object-cover"
                   />
