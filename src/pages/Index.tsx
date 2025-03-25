@@ -24,7 +24,7 @@ const Index = () => {
         subtitle="Изысканное воплощение комфорта и роскоши. Откройте для себя новый уровень гостеприимства."
         buttonText="Забронировать номер"
         buttonLink="/rooms"
-        imageSrc="street.jpg"
+        imageSrc="/kaka.jpg"
         showStats={true}
       />
 

@@ -1,4 +1,3 @@
-
 import { YMaps, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
@@ -20,7 +19,7 @@ const Contact = () => {
       <HeroSection
         title="Свяжитесь с нами"
         subtitle="Мы всегда рады ответить на ваши вопросы и помочь с бронированием. Используйте любой удобный для вас способ связи."
-        imageSrc="/contact-hero.jpg"
+        imageSrc="/kaka.jpg"
         minHeight="min-h-[60vh]"
       />
 
@@ -191,14 +190,14 @@ const Contact = () => {
                 <Map
                   className="w-full h-full"
                   defaultState={{
-                    center: [55.751244, 37.618423], // Координаты центра Москвы
-                    zoom: 14,
+                    center: [52.127714, 107.238834],
+                    zoom: 16,
                     controls: [],
                   }}
                   width="100%"
                   height="100%"
                 >
-                  <Placemark geometry={[55.751244, 37.618423]} />
+                  <Placemark geometry={[52.127714, 107.238834]} />
                   <ZoomControl options={{ position: { right: 10, top: 10 } }} />
                 </Map>
               </YMaps>

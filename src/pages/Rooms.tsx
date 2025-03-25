@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -17,15 +16,14 @@ const Rooms = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      <HeroSection 
+
+      <HeroSection
         title="Наши номера"
         subtitle="Откройте для себя идеальное размещение для вашего пребывания.У нас есть все для вашего комфорта."
-        imageSrc="/rooms-hero.jpg"
+        imageSrc="/kaka.jpg"
         minHeight="min-h-[60vh]"
       />
 
-      
       {/* Rooms Grid */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -48,7 +46,8 @@ const Rooms = () => {
                 Часто задаваемые вопросы
               </h2>
               <p className="text-muted-foreground">
-                Ответы на популярные вопросы о наших номерах и процессе бронирования
+                Ответы на популярные вопросы о наших номерах и процессе
+                бронирования
               </p>
             </div>
           </FadeIn>
