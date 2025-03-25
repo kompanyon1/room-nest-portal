@@ -1,6 +1,4 @@
 import { YMaps, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
-
-import { YMaps, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -190,11 +188,15 @@ const Contact = () => {
             <div className="relative rounded-xl overflow-hidden h-[400px] md:h-[500px]">
               <YMaps>
                 <Map
-                  className="map"
-                  defaultState={{ center: [52.127714, 107.238834], zoom: 16 }}
+                  className="w-full h-full"
+                  defaultState={{
+                    center: [52.127714, 107.238834],
+                    zoom: 16,
+                    controls: [],
+                  }}
                 >
                   <Placemark geometry={[52.127714, 107.238834]} />
-                  <ZoomControl options={{}} />
+                  <ZoomControl options={{ position: { right: 10, top: 10 } }} />
                 </Map>
               </YMaps>
               <div className="absolute inset-0 bg-gray-300 flex items-center justify-center"></div>
