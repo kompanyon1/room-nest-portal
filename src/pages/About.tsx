@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -147,7 +148,7 @@ const About = () => {
             </FadeInStagger>
           </div>
         </div>
-      </section> */
+      </section> */}
 
       {/* Achievements */}
       {/* <section className="py-20 bg-hotel-charcoal text-white">
