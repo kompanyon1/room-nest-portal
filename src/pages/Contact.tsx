@@ -1,3 +1,4 @@
+
 import { YMaps, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
@@ -186,20 +187,21 @@ const Contact = () => {
 
           <FadeIn delay={0.2}>
             <div className="relative rounded-xl overflow-hidden h-[400px] md:h-[500px]">
-              <YMaps>
+              <YMaps query={{ apikey: "e355402b-a492-4cb2-a801-e58aa05b62a9" }}>
                 <Map
                   className="w-full h-full"
                   defaultState={{
-                    center: [52.127714, 107.238834],
-                    zoom: 16,
+                    center: [55.751244, 37.618423], // Координаты центра Москвы
+                    zoom: 14,
                     controls: [],
                   }}
+                  width="100%"
+                  height="100%"
                 >
-                  <Placemark geometry={[52.127714, 107.238834]} />
+                  <Placemark geometry={[55.751244, 37.618423]} />
                   <ZoomControl options={{ position: { right: 10, top: 10 } }} />
                 </Map>
               </YMaps>
-              <div className="absolute inset-0 bg-gray-300 flex items-center justify-center"></div>
             </div>
           </FadeIn>
 
