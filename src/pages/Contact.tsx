@@ -1,4 +1,4 @@
-
+import { YMaps, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
+
 
 const Contact = () => {
   useEffect(() => {
@@ -174,32 +175,39 @@ const Contact = () => {
           
           <FadeIn delay={0.2}>
             <div className="relative rounded-xl overflow-hidden h-[400px] md:h-[500px]">
-              {/* This would typically be a Google Maps embed or similar */}
+            <YMaps>
+
+<Map className='map' defaultState={{ center: [52.127714, 107.238834], zoom: 16}} >
+<Placemark geometry={[52.127714, 107.238834]}/>
+<ZoomControl options={{}}/>
+</Map>
+
+</YMaps>
               <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                <p className="text-gray-600">Карта местоположения</p>
+ 
               </div>
             </div>
           </FadeIn>
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <FadeIn delay={0.3}>
+            <FadeIn delay={0.6}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">Прибытие на автомобиле</h4>
                 <p className="text-muted-foreground">Доступна частная парковка на территории отеля. Предварительное бронирование рекомендуется.</p>
               </div>
             </FadeIn>
             
-            <FadeIn delay={0.4}>
+            <FadeIn delay={0.8}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">Общественный транспорт</h4>
                 <p className="text-muted-foreground">Метро "Центральная" в 5 минутах ходьбы. Автобусы №10, 25, 38 останавливаются рядом с отелем.</p>
               </div>
             </FadeIn>
             
-            <FadeIn delay={0.5}>
+            <FadeIn delay={1}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">Из аэропорта</h4>
-                <p className="text-muted-foreground">Аэроэкспресс до центрального вокзала, затем такси или метро. Доступна услуга трансфера по запросу.</p>
+                <p className="text-muted-foreground">Такси до центрального вокзала, затем маршрутка. Доступна услуга трансфера по запросу.</p>
               </div>
             </FadeIn>
           </div>

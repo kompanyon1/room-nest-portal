@@ -19,56 +19,13 @@ const Rooms = () => {
       <Navbar />
       
       <HeroSection 
-        title="Наши номера и сьюты"
-        subtitle="Откройте для себя идеальное размещение для вашего пребывания. От уютных номеров до роскошных люксов — у нас есть все для вашего комфорта."
+        title="Наши номера"
+        subtitle="Откройте для себя идеальное размещение для вашего пребывания.У нас есть все для вашего комфорта."
         imageSrc="/rooms-hero.jpg"
         minHeight="min-h-[60vh]"
       />
 
-      {/* Filters - Just for design, not functional in this version */}
-      <section className="py-12 border-b border-border">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-wrap justify-between items-center gap-4">
-            <div className="font-medium">Фильтры:</div>
-            <div className="flex flex-wrap gap-2">
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Bed className="mr-2 h-4 w-4" />
-                Тип кровати
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Users className="mr-2 h-4 w-4" />
-                Количество гостей
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Square className="mr-2 h-4 w-4" />
-                Площадь
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Wifi className="mr-2 h-4 w-4" />
-                Удобства
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Coffee className="mr-2 h-4 w-4" />
-                Услуги
-              </Button>
-              <Button variant="outline" size="sm" className="rounded-full">
-                <Tv className="mr-2 h-4 w-4" />
-                Развлечения
-              </Button>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground mr-2">Сортировать по:</span>
-              <select className="rounded-md border border-border bg-transparent px-3 py-1 text-sm">
-                <option>Рекомендуемые</option>
-                <option>Цена (по возрастанию)</option>
-                <option>Цена (по убыванию)</option>
-                <option>Размер номера</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Rooms Grid */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">

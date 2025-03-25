@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import {
-  Facebook,
+  Send,
   Instagram,
-  Twitter,
   Mail,
   Phone,
   MapPin,
@@ -26,13 +25,7 @@ export function Footer() {
                 комфорта наших гостей.
               </p>
               <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="text-foreground/60 hover:text-foreground transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
+               
                 <a
                   href="#"
                   className="text-foreground/60 hover:text-foreground transition-colors"
@@ -43,10 +36,12 @@ export function Footer() {
                 <a
                   href="#"
                   className="text-foreground/60 hover:text-foreground transition-colors"
-                  aria-label="Twitter"
+                  aria-label="Telegram"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <Send className="h-5 w-5" />
                 </a>
+               
+               
               </div>
             </div>
           </FadeIn>
@@ -92,7 +87,7 @@ export function Footer() {
                     to="/rooms"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Номера и сьюты
+                    Номера
                   </Link>
                 </li>
                 <li>
@@ -131,31 +126,7 @@ export function Footer() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.4}>
-            <div>
-              <h4 className="font-serif text-lg font-medium mb-4">Новости</h4>
-              <p className="text-muted-foreground mb-4">
-                Подпишитесь на нашу рассылку, чтобы получать эксклюзивные
-                предложения и новости.
-              </p>
-              <form className="mt-4">
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="Ваш email"
-                    className="flex-1 rounded-l-md border-r-0 bg-background focus:ring-0 focus:border-hotel-brown text-sm py-2 px-3"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="rounded-r-md bg-hotel-brown text-hotel-cream px-4 text-sm hover:bg-hotel-charcoal transition-colors"
-                  >
-                    Подписаться
-                  </button>
-                </div>
-              </form>
-            </div>
-          </FadeIn>
+          
         </div>
 
         <div className="mt-16 pt-8 border-t border-hotel-taupe/20 text-center text-muted-foreground">
