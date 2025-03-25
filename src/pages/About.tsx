@@ -90,7 +90,7 @@ const About = () => {
             </div>
           </FadeIn>
 
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-center gap-16">
             <FadeInStagger>
               <ValueCard
                 title="Внимание к деталям"
