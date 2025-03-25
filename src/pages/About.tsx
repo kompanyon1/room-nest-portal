@@ -89,7 +89,7 @@ const About = () => {
             </div>
           </FadeIn>
 
-          <div className="grid flex-col md:flex-row gap-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
             <FadeInStagger>
               <ValueCard
                 title="Внимание к деталям"
@@ -99,8 +99,6 @@ const About = () => {
                 title="Персонализированный сервис"
                 description="Мы стремимся предвосхищать потребности наших гостей, предлагая индивидуальный подход и персонализированный сервис, который превосходит ожидания."
               />
-              
-              
             </FadeInStagger>
           </div>
         </div>
@@ -149,7 +147,7 @@ const About = () => {
             </FadeInStagger>
           </div>
         </div>
-      </section> */}
+      </section> */
 
       {/* Achievements */}
       {/* <section className="py-20 bg-hotel-charcoal text-white">
