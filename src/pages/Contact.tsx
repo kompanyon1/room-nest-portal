@@ -186,7 +186,7 @@ const Contact = () => {
                   }}
                 >
                   <Placemark geometry={[52.127714, 107.238834]} />
-                  <ZoomControl options={{ float: 'right' }} />
+                  <ZoomControl options={{ position: { right: 10, top: 10 } }} />
                 </Map>
               </YMaps>
             </div>
