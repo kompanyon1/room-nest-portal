@@ -96,17 +96,17 @@ const About = () => {
               <LeisureCard 
                 title="Баня" 
                 description="Расслабьтесь в нашей традиционной русской бане с березовыми вениками и чаем из трав. Идеальное место для восстановления сил после активного дня."
-                icon={<Bath className="w-12 h-12 text-hotel-brown" />}
+                icon={<Bath className="w-12 h-12 text-hotel-brown/60" />}
               />
               <LeisureCard 
                 title="Беседка" 
                 description="Уютная беседка в окружении природы — идеальное место для семейных посиделок или дружеских встреч в теплые летние вечера."
-                icon={<Tent className="w-12 h-12 text-hotel-brown" />}
+                icon={<Tent className="w-12 h-12 text-hotel-brown/60" />}
               />
               <LeisureCard 
                 title="Мангальная зона" 
                 description="Специально оборудованная зона для барбекю, где вы можете приготовить вкусные блюда на гриле и насладиться трапезой на свежем воздухе."
-                icon={<Flame className="w-12 h-12 text-hotel-brown" />}
+                icon={<Flame className="w-12 h-12 text-hotel-brown/60" />}
               />
             </FadeInStagger>
           </div>
