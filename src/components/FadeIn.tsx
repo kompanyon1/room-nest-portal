@@ -104,14 +104,14 @@ export function FadeInStagger({
   staggerDelay = 0.1,
   initialDelay = 0,
   duration = 0.6,
-  className = "",
+
   childClassName = "",
   once = true,
   direction = "up",
   distance = 20,
 }: FadeInStaggerProps) {
   return (
-    <div className={className}>
+    <>
       {children.map((child, index) => (
         <FadeIn
           key={index}
@@ -125,6 +125,6 @@ export function FadeInStagger({
           {child}
         </FadeIn>
       ))}
-    </div>
+    </>
   );
 }
