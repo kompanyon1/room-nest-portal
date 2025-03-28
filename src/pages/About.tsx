@@ -91,7 +91,7 @@ const About = () => {
             </div>
           </FadeIn>
 
-          <div className="flex flex-wrap justify-center gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <FadeInStagger>
               <LeisureCard 
                 title="Баня" 
