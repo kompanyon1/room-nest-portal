@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LogOut, UserCog } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, isAdmin, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,12 +70,47 @@ export function Navbar() {
               {link.label}
             </NavLink>
           ))}
+          {isAdmin && (
+            <NavLink
+              to="/admin"
+              className={({ isActive }) =>
+                cn(
+                  "text-base transition-colors hover:text-foreground/80 flex items-center gap-2",
+                  isActive ? "text-black font-medium" : "text-black"
+                )
+              }
+            >
+              <UserCog className="h-4 w-4" />
+              Админ
+            </NavLink>
+          )}
           <Button
             className="rounded-full px-6 bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md"
             asChild
           >
             <Link to="/rooms">Забронировать</Link>
           </Button>
+          {user ? (
+            <Button
+              variant="outline"
+              onClick={() => signOut()}
+              className="rounded-full px-6 flex items-center gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              Выход
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-full px-6 flex items-center gap-2"
+            >
+              <Link to="/auth">
+                <LogIn className="h-4 w-4" />
+                Вход
+              </Link>
+            </Button>
+          )}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -118,6 +155,23 @@ export function Navbar() {
                 {link.label}
               </NavLink>
             ))}
+            {isAdmin && (
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  cn(
+                    "text-xl transition-colors flex items-center gap-2",
+                    isActive
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground"
+                  )
+                }
+                onClick={closeMobileMenu}
+              >
+                <UserCog className="h-5 w-5" />
+                Админ панель
+              </NavLink>
+            )}
             <Button
               className="mt-4 rounded-full bg-hotel-charcoal text-white hover:bg-hotel-charcoal/90 shadow-md"
               onClick={closeMobileMenu}
@@ -125,6 +179,31 @@ export function Navbar() {
             >
               <Link to="/rooms">Забронировать</Link>
             </Button>
+            {user ? (
+              <Button
+                variant="outline"
+                onClick={() => {
+                  signOut();
+                  closeMobileMenu();
+                }}
+                className="rounded-full flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Выход
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                onClick={closeMobileMenu}
+                asChild
+                className="rounded-full flex items-center gap-2"
+              >
+                <Link to="/auth">
+                  <LogIn className="h-4 w-4" />
+                  Вход
+                </Link>
+              </Button>
+            )}
           </nav>
         </div>
       </div>
