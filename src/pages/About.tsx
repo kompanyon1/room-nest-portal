@@ -6,20 +6,27 @@ import { HeroSection } from "@/components/HeroSection";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { Card, CardContent } from "@/components/ui/card";
 import { Flame, Tent, Bath } from "lucide-react";
+import { useContent } from "@/hooks/useContent";
 
 const About = () => {
+  const { get, loading } = useContent();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <HeroSection
-        title="О нашем отеле"
-        subtitle="Откройте для себя историю и философию отеля Элегант — места, где роскошь встречается с исключительным сервисом."
-        imageSrc="corp2.jpg"
+        title={get('about_hero_title', 'О нашем отеле')}
+        subtitle={get('about_hero_subtitle', 'Откройте для себя историю и философию отеля Элегант — места, где роскошь встречается с исключительным сервисом.')}
+        imageSrc={get('about_hero_image', 'corp2.jpg')}
         minHeight="min-h-[60vh]"
       />
 
@@ -43,29 +50,15 @@ const About = () => {
             <FadeIn delay={0.2}>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                  Наша история
+                  {get('about_story_badge', 'Наша история')}
                 </div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                  Наследие элегантности
+                  {get('about_story_title', 'Наследие элегантности')}
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Отель Элегант начал свою историю в 1998 году, когда
-                    историческое здание начала 20 века было реставрировано с
-                    тщательным вниманием к оригинальным архитектурным деталям и
-                    в то же время оборудовано всеми современными удобствами.
-                  </p>
-                  <p>
-                    На протяжении более двух десятилетий мы совершенствовали
-                    искусство гостеприимства, создавая атмосферу, где каждый
-                    гость чувствует себя как дома, но в окружении исключительной
-                    красоты и комфорта.
-                  </p>
-                  <p>
-                    Сегодня отель Элегант остается символом утонченного
-                    гостеприимства, где традиции встречаются с инновациями,
-                    создавая незабываемые впечатления для каждого гостя.
-                  </p>
+                  <p>{get('about_story_description_1', 'Отель Элегант начал свою историю в 1998 году...')}</p>
+                  <p>{get('about_story_description_2', 'На протяжении более двух десятилетий мы совершенствовали искусство гостеприимства...')}</p>
+                  <p>{get('about_story_description_3', 'Сегодня отель Элегант остается символом утонченного гостеприимства...')}</p>
                 </div>
               </div>
             </FadeIn>
@@ -80,13 +73,13 @@ const About = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <div className="inline-block px-3 py-1 rounded-full bg-background text-hotel-brown text-sm mb-4">
-                Досуг и отдых
+                {get('about_leisure_badge', 'Досуг и отдых')}
               </div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Комфортный отдых для наших гостей
+                {get('about_leisure_title', 'Комфортный отдых для наших гостей')}
               </h2>
               <p className="text-foreground">
-                В нашем отеле предусмотрены различные варианты для комфортного и приятного досуга
+                {get('about_leisure_description', 'В нашем отеле предусмотрены различные варианты для комфортного и приятного досуга')}
               </p>
             </div>
           </FadeIn>
@@ -94,18 +87,18 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <FadeInStagger>
               <LeisureCard 
-                title="Баня" 
-                description="Расслабьтесь в нашей традиционной русской бане с березовыми вениками и чаем из трав. Идеальное место для восстановления сил после активного дня."
+                title={get('about_leisure_card_1_title', 'Баня')}
+                description={get('about_leisure_card_1_description', 'Расслабьтесь в нашей традиционной русской бане с березовыми вениками и чаем из трав.')}
                 icon={<Bath className="w-12 h-12 text-hotel-brown/60" />}
               />
               <LeisureCard 
-                title="Беседка" 
-                description="Уютная беседка в окружении природы — идеальное место для семейных посиделок или дружеских встреч в теплые летние вечера."
+                title={get('about_leisure_card_2_title', 'Беседка')}
+                description={get('about_leisure_card_2_description', 'Уютная беседка в окружении природы — идеальное место для семейных посиделок или дружеских встреч.')}
                 icon={<Tent className="w-12 h-12 text-hotel-brown/60" />}
               />
               <LeisureCard 
-                title="Мангальная зона" 
-                description="Специально оборудованная зона для барбекю, где вы можете приготовить вкусные блюда на гриле и насладиться трапезой на свежем воздухе."
+                title={get('about_leisure_card_3_title', 'Мангальная зона')}
+                description={get('about_leisure_card_3_description', 'Специально оборудованная зона для барбекю, где вы можете приготовить вкусные блюда на гриле.')}
                 icon={<Flame className="w-12 h-12 text-hotel-brown/60" />}
               />
             </FadeInStagger>

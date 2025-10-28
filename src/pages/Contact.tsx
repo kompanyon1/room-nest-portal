@@ -6,20 +6,27 @@ import { HeroSection } from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
+import { useContent } from "@/hooks/useContent";
 
 const Contact = () => {
+  const { get, loading } = useContent();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <HeroSection
-        title="Свяжитесь с нами"
-        subtitle="Мы всегда рады ответить на ваши вопросы и помочь с бронированием. Используйте любой удобный для вас способ связи."
-        imageSrc="/kaka.jpg"
+        title={get('contact_hero_title', 'Свяжитесь с нами')}
+        subtitle={get('contact_hero_subtitle', 'Мы всегда рады ответить на ваши вопросы и помочь с бронированием. Используйте любой удобный для вас способ связи.')}
+        imageSrc={get('contact_hero_image', '/kaka.jpg')}
         minHeight="min-h-[60vh]"
       />
 
@@ -30,17 +37,17 @@ const Contact = () => {
             <FadeIn>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                  Наши контакты
+                  {get('contact_info_badge', 'Наши контакты')}
                 </div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-8">
-                  Как с нами связаться
+                  {get('contact_info_title', 'Как с нами связаться')}
                 </h2>
 
                 <div className="space-y-8">
                   <ContactItem
                     icon={<MapPin className="h-6 w-6" />}
                     title="Адрес"
-                    details={["ул. Пушкина 10, Москва", "Россия, 123456"]}
+                    details={[get('contact_info_address_1', 'ул. Пушкина 10, Москва'), get('contact_info_address_2', 'Россия, 123456')]}
                   />
 
                   <ContactItem
@@ -49,10 +56,10 @@ const Contact = () => {
                     details={[
                       <a
                         key="phone"
-                        href="tel:+74951234567"
+                        href={`tel:${get('contact_info_phone', '+74951234567').replace(/[^0-9+]/g, '')}`}
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        +7 (495) 123-45-67
+                        {get('contact_info_phone', '+7 (495) 123-45-67')}
                       </a>,
                     ]}
                   />
@@ -63,17 +70,17 @@ const Contact = () => {
                     details={[
                       <a
                         key="email"
-                        href="mailto:info@elegant.ru"
+                        href={`mailto:${get('contact_info_email_1', 'info@elegant.ru')}`}
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        info@elegant.ru
+                        {get('contact_info_email_1', 'info@elegant.ru')}
                       </a>,
                       <a
                         key="booking"
-                        href="mailto:booking@elegant.ru"
+                        href={`mailto:${get('contact_info_email_2', 'booking@elegant.ru')}`}
                         className="text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        booking@elegant.ru
+                        {get('contact_info_email_2', 'booking@elegant.ru')}
                       </a>,
                     ]}
                   />
@@ -82,9 +89,9 @@ const Contact = () => {
                     icon={<Clock className="h-6 w-6" />}
                     title="Часы работы"
                     details={[
-                      "Регистрация: 24/7",
-                      "Ресторан: 6:30 - 23:00",
-                      "Спа-центр: 9:00 - 21:00",
+                      get('contact_info_hours_1', 'Регистрация: 24/7'),
+                      get('contact_info_hours_2', 'Ресторан: 6:30 - 23:00'),
+                      get('contact_info_hours_3', 'Спа-центр: 9:00 - 21:00'),
                     ]}
                   />
                 </div>
@@ -94,7 +101,7 @@ const Contact = () => {
             <FadeIn delay={0.2}>
               <div className="bg-hotel-beige p-8 rounded-xl">
                 <h3 className="font-serif text-2xl font-semibold mb-6">
-                  Отправить сообщение
+                  {get('contact_form_title', 'Отправить сообщение')}
                 </h3>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -175,11 +182,10 @@ const Contact = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Как нас найти
+                {get('contact_map_title', 'Как нас найти')}
               </h2>
               <p className="text-muted-foreground">
-                Мы расположены в центре города, в нескольких минутах ходьбы от
-                основных достопримечательностей и транспортных узлов
+                {get('contact_map_description', 'Мы расположены в центре города, в нескольких минутах ходьбы от основных достопримечательностей и транспортных узлов')}
               </p>
             </div>
           </FadeIn>
@@ -208,11 +214,10 @@ const Contact = () => {
             <FadeIn delay={0.6}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">
-                  Прибытие на автомобиле
+                  {get('contact_map_card_1_title', 'Прибытие на автомобиле')}
                 </h4>
                 <p className="text-muted-foreground">
-                  Доступна частная парковка на территории отеля. Предварительное
-                  бронирование рекомендуется.
+                  {get('contact_map_card_1_description', 'Доступна частная парковка на территории отеля. Предварительное бронирование рекомендуется.')}
                 </p>
               </div>
             </FadeIn>
@@ -220,11 +225,10 @@ const Contact = () => {
             <FadeIn delay={0.8}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">
-                  Общественный транспорт
+                  {get('contact_map_card_2_title', 'Общественный транспорт')}
                 </h4>
                 <p className="text-muted-foreground">
-                  Метро "Центральная" в 5 минутах ходьбы. Автобусы №10, 25, 38
-                  останавливаются рядом с отелем.
+                  {get('contact_map_card_2_description', 'Метро "Центральная" в 5 минутах ходьбы. Автобусы №10, 25, 38 останавливаются рядом с отелем.')}
                 </p>
               </div>
             </FadeIn>
@@ -232,11 +236,10 @@ const Contact = () => {
             <FadeIn delay={1}>
               <div className="bg-background p-6 rounded-xl border border-border">
                 <h4 className="font-serif text-lg font-medium mb-3">
-                  Из аэропорта
+                  {get('contact_map_card_3_title', 'Из аэропорта')}
                 </h4>
                 <p className="text-muted-foreground">
-                  Такси до центрального вокзала, затем маршрутка. Доступна
-                  услуга трансфера по запросу.
+                  {get('contact_map_card_3_description', 'Такси до центрального вокзала, затем маршрутка. Доступна услуга трансфера по запросу.')}
                 </p>
               </div>
             </FadeIn>

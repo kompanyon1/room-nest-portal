@@ -7,24 +7,30 @@ import { HeroSection } from "@/components/HeroSection";
 import { RoomCard } from "@/components/RoomCard";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { getFeaturedRooms } from "@/lib/rooms";
+import { useContent } from "@/hooks/useContent";
 
 const Index = () => {
   const featuredRooms = getFeaturedRooms();
+  const { get, loading } = useContent();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <HeroSection
-        title="Добро пожаловать в отель 236 метров"
-        subtitle="Изысканное воплощение комфорта и роскоши. Откройте для себя новый уровень гостеприимства."
-        buttonText="Забронировать номер"
+        title={get('index_hero_title', 'Добро пожаловать в отель 236 метров')}
+        subtitle={get('index_hero_subtitle', 'Изысканное воплощение комфорта и роскоши. Откройте для себя новый уровень гостеприимства.')}
+        buttonText={get('index_hero_button_text', 'Забронировать номер')}
         buttonLink="/rooms"
-        imageSrc="/kaka.jpg"
+        imageSrc={get('index_hero_image', '/kaka.jpg')}
         showStats={true}
       />
 
@@ -48,22 +54,16 @@ const Index = () => {
             <FadeIn delay={0.2}>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                  О нашем отеле
+                  {get('index_about_badge', 'О нашем отеле')}
                 </div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                  Роскошь в каждой детали
+                  {get('index_about_title', 'Роскошь в каждой детали')}
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Отель 236 метров — это не просто место для ночлега, а
-                  настоящий оазис комфорта и изысканности. Каждый номер
-                  тщательно продуман до мельчайших деталей, чтобы обеспечить
-                  незабываемый опыт пребывания для наших гостей.
+                  {get('index_about_description_1', 'Отель 236 метров — это не просто место для ночлега, а настоящий оазис комфорта и изысканности.')}
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Наш отель сочетает в себе классическую элегантность и
-                  современные удобства, создавая идеальную атмосферу как для
-                  деловых путешественников, так и для туристов, ищущих роскошный
-                  отдых.
+                  {get('index_about_description_2', 'Наш отель сочетает в себе классическую элегантность и современные удобства.')}
                 </p>
                 <Button className="rounded-full px-8" asChild>
                   <Link to="/about">Узнать больше</Link>
@@ -80,14 +80,13 @@ const Index = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                Наши номера
+                {get('index_rooms_badge', 'Наши номера')}
               </div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Выберите идеальный номер для вашего пребывания
+                {get('index_rooms_title', 'Выберите идеальный номер для вашего пребывания')}
               </h2>
               <p className="text-muted-foreground">
-                От стандартных номеров до роскошных люксов — мы предлагаем
-                размещение, которое удовлетворит все ваши потребности.
+                {get('index_rooms_description', 'От стандартных номеров до роскошных люксов — мы предлагаем размещение, которое удовлетворит все ваши потребности.')}
               </p>
             </div>
           </FadeIn>
@@ -115,32 +114,32 @@ const Index = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <div className="inline-block px-3 py-1 rounded-full bg-background text-hotel-brown text-sm mb-4">
-                Отзывы
+                {get('index_testimonials_badge', 'Отзывы')}
               </div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Что говорят наши гости
+                {get('index_testimonials_title', 'Что говорят наши гости')}
               </h2>
               <p className="text-muted-foreground">
-                Мы гордимся впечатлениями, которые оставляют наши гости
+                {get('index_testimonials_description', 'Мы гордимся впечатлениями, которые оставляют наши гости')}
               </p>
             </div>
           </FadeIn>
 
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <TestimonialCard
-              quote="Прекрасный отель с безупречным сервисом. Номера оформлены со вкусом, а персонал всегда готов помочь. Обязательно вернусь снова!"
-              author="Анна К."
-              role="Бизнес-путешественник"
+              quote={get('index_testimonials_review_1_text', 'Прекрасный отель с безупречным сервисом.')}
+              author={get('index_testimonials_review_1_author', 'Анна К.')}
+              role={get('index_testimonials_review_1_role', 'Бизнес-путешественник')}
             />
             <TestimonialCard
-              quote="Останавливались с семьей на выходные. Дети были в восторге от просторного номера, а мы оценили внимание к деталям и прекрасное расположение."
-              author="Сергей и Мария В."
-              role="Семейный отдых"
+              quote={get('index_testimonials_review_2_text', 'Останавливались с семьей на выходные.')}
+              author={get('index_testimonials_review_2_author', 'Сергей и Мария В.')}
+              role={get('index_testimonials_review_2_role', 'Семейный отдых')}
             />
             <TestimonialCard
-              quote="Идеальное место для романтического уикенда. Тихие и уютные номера, изысканная кухня и атмосфера настоящей роскоши."
-              author="Ольга Д."
-              role="Праздничный отдых"
+              quote={get('index_testimonials_review_3_text', 'Идеальное место для романтического уикенда.')}
+              author={get('index_testimonials_review_3_author', 'Ольга Д.')}
+              role={get('index_testimonials_review_3_role', 'Праздничный отдых')}
             />
           </FadeInStagger>
         </div>
@@ -152,11 +151,10 @@ const Index = () => {
           <div className="text-center max-w-3xl mx-auto">
             <FadeInStagger>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Готовы забронировать идеальный отдых?
+                {get('index_cta_title', 'Готовы забронировать идеальный отдых?')}
               </h2>
               <p className="text-white/80 mb-10 text-lg">
-                Свяжитесь с нами сегодня и позвольте нам помочь спланировать
-                ваше идеальное пребывание в отеле 236 метров.
+                {get('index_cta_description', 'Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле 236 метров.')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
