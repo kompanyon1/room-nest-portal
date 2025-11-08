@@ -6,12 +6,18 @@ import { RoomCard } from "@/components/RoomCard";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Bed, Users, Square, Wifi, Coffee, Tv } from "lucide-react";
-import { rooms } from "@/lib/rooms";
+import { useRooms } from "@/hooks/useRooms";
 
 const Rooms = () => {
+  const { rooms, loading } = useRooms();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   return (
     <div className="min-h-screen bg-background">

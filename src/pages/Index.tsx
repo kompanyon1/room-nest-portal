@@ -6,18 +6,20 @@ import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { RoomCard } from "@/components/RoomCard";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import { getFeaturedRooms } from "@/lib/rooms";
+import { useRooms } from "@/hooks/useRooms";
 import { useContent } from "@/hooks/useContent";
 
 const Index = () => {
-  const featuredRooms = getFeaturedRooms();
-  const { get, loading } = useContent();
+  const { rooms, loading: roomsLoading } = useRooms();
+  const { get, loading: contentLoading } = useContent();
+  
+  const featuredRooms = rooms.filter(room => room.featured);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (loading) {
+  if (contentLoading || roomsLoading) {
     return <div className="min-h-screen bg-background" />;
   }
 

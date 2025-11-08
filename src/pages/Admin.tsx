@@ -11,6 +11,8 @@ import { useToast } from '@/hooks/use-toast';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Loader2 } from 'lucide-react';
+import { RoomsManagement } from '@/components/admin/RoomsManagement';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface ContentItem {
   id: string;
@@ -133,13 +135,20 @@ const Admin = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
       <main className="flex-1 container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-8">
           <div>
             <h1 className="text-4xl font-bold mb-2">Админ панель</h1>
             <p className="text-muted-foreground">Редактирование контента сайта</p>
           </div>
 
-          {Object.entries(groupedContent).map(([section, items]) => (
+          <Tabs defaultValue="content" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 max-w-md">
+              <TabsTrigger value="content">Контент</TabsTrigger>
+              <TabsTrigger value="rooms">Номера</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="content" className="space-y-8">
+              {Object.entries(groupedContent).map(([section, items]) => (
             <Card key={section}>
               <CardHeader>
                 <CardTitle className="capitalize">{section}</CardTitle>
@@ -213,7 +222,13 @@ const Admin = () => {
                 ))}
               </CardContent>
             </Card>
-          ))}
+              ))}
+            </TabsContent>
+
+            <TabsContent value="rooms">
+              <RoomsManagement />
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
       <Footer />

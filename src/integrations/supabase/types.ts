@@ -38,6 +38,86 @@ export type Database = {
         }
         Relationships: []
       }
+      room_images: {
+        Row: {
+          created_at: string
+          display_order: number
+          id: string
+          image_url: string
+          room_id: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url: string
+          room_id: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          id?: string
+          image_url?: string
+          room_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "room_images_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rooms: {
+        Row: {
+          amenities: string[]
+          beds: string
+          capacity: number
+          created_at: string
+          currency: string
+          description: string
+          featured: boolean
+          full_description: string
+          id: string
+          name: string
+          price: number
+          size: string
+          updated_at: string
+        }
+        Insert: {
+          amenities?: string[]
+          beds: string
+          capacity: number
+          created_at?: string
+          currency?: string
+          description: string
+          featured?: boolean
+          full_description: string
+          id: string
+          name: string
+          price: number
+          size: string
+          updated_at?: string
+        }
+        Update: {
+          amenities?: string[]
+          beds?: string
+          capacity?: number
+          created_at?: string
+          currency?: string
+          description?: string
+          featured?: boolean
+          full_description?: string
+          id?: string
+          name?: string
+          price?: number
+          size?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           content_key: string

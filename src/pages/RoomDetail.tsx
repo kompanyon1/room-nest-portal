@@ -6,18 +6,21 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import { getRoomById, Room } from "@/lib/rooms";
+import { useRooms } from "@/hooks/useRooms";
+import { Room } from "@/lib/rooms";
 
 const RoomDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const { rooms, loading: roomsLoading } = useRooms();
   const [room, setRoom] = useState<Room | null>(null);
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
   console.log(selectedImage);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (id) {
-      const roomData = getRoomById(id);
+    if (id && !roomsLoading) {
+      const roomData = rooms.find(r => r.id === id);
       if (roomData) {
         setRoom(roomData);
         setSelectedImage(roomData.images[0] || "");
@@ -25,7 +28,7 @@ const RoomDetail = () => {
       // Simulate loading for smoother transitions
       setTimeout(() => setIsLoading(false), 500);
     }
-  }, [id]);
+  }, [id, rooms, roomsLoading]);
 
   if (isLoading) {
     return (
