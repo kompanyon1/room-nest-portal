@@ -38,7 +38,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-[4/3] rounded-xl overflow-hidden">
                   <img
-                    src="/corp2.jpg"
+                    src={get('about_story_image', '/corp2.jpg')}
                     alt="Hotel History"
                     className="w-full h-full object-cover"
                   />
