@@ -156,11 +156,14 @@ const Admin = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {items.map((item) => (
-                  <div key={item.id} className="space-y-2">
-                    <Label htmlFor={item.content_key}>{item.label}</Label>
+                  <div key={item.id} className="space-y-3 p-4 border rounded-lg bg-muted/30">
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor={item.content_key} className="text-base font-semibold">{item.label}</Label>
+                      {saving === item.id && <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />}
+                    </div>
                     {item.content_type === 'text' ? (
                       item.content_value.length > 100 ? (
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                           <Textarea
                             id={item.content_key}
                             value={item.content_value}
@@ -170,18 +173,20 @@ const Admin = () => {
                               newContent[index].content_value = e.target.value;
                               setContent(newContent);
                             }}
-                            rows={4}
+                            rows={5}
+                            className="resize-none"
                           />
                           <Button
                             onClick={() => updateContent(item.id, item.content_value)}
                             disabled={saving === item.id}
                             size="sm"
+                            className="w-full sm:w-auto"
                           >
-                            {saving === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Сохранить'}
+                            {saving === item.id ? 'Сохранение...' : 'Сохранить изменения'}
                           </Button>
                         </div>
                       ) : (
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                           <Input
                             id={item.content_key}
                             value={item.content_value}
@@ -191,30 +196,50 @@ const Admin = () => {
                               newContent[index].content_value = e.target.value;
                               setContent(newContent);
                             }}
+                            className="text-base"
                           />
                           <Button
                             onClick={() => updateContent(item.id, item.content_value)}
                             disabled={saving === item.id}
                             size="sm"
+                            className="w-full sm:w-auto"
                           >
-                            {saving === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Сохранить'}
+                            {saving === item.id ? 'Сохранение...' : 'Сохранить изменения'}
                           </Button>
                         </div>
                       )
                     ) : (
-                      <div className="space-y-2">
-                        <Input
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              handleImageUpload(item.id, file);
-                            }
-                          }}
-                        />
+                      <div className="space-y-3">
+                        <div className="flex flex-col gap-3">
+                          <Button
+                            variant="outline"
+                            onClick={() => document.getElementById(`file-${item.id}`)?.click()}
+                            disabled={saving === item.id}
+                            className="w-full sm:w-auto"
+                          >
+                            {saving === item.id ? 'Загрузка...' : 'Выбрать изображение'}
+                          </Button>
+                          <Input
+                            id={`file-${item.id}`}
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) {
+                                handleImageUpload(item.id, file);
+                              }
+                            }}
+                            className="hidden"
+                          />
+                        </div>
                         {item.content_value && (
-                          <img src={item.content_value} alt={item.label} className="max-w-xs rounded-lg" />
+                          <div className="relative rounded-lg overflow-hidden border">
+                            <img 
+                              src={item.content_value} 
+                              alt={item.label} 
+                              className="w-full max-w-md h-auto object-cover" 
+                            />
+                          </div>
                         )}
                       </div>
                     )}
