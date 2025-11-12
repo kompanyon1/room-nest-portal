@@ -12,8 +12,8 @@ import { useContent } from "@/hooks/useContent";
 const Index = () => {
   const { rooms, loading: roomsLoading } = useRooms();
   const { get, loading: contentLoading } = useContent();
-  
-  const featuredRooms = rooms.filter(room => room.featured);
+
+  const featuredRooms = rooms.filter((room) => room.featured);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,11 +28,14 @@ const Index = () => {
       <Navbar />
 
       <HeroSection
-        title={get('index_hero_title', 'Добро пожаловать в отель 236 метров')}
-        subtitle={get('index_hero_subtitle', 'Изысканное воплощение комфорта и роскоши. Откройте для себя новый уровень гостеприимства.')}
-        buttonText={get('index_hero_button_text', 'Забронировать номер')}
+        title={get("index_hero_title", "Добро пожаловать в отель 236 метров")}
+        subtitle={get(
+          "index_hero_subtitle",
+          "Изысканное воплощение комфорта и роскоши. Откройте для себя новый уровень гостеприимства."
+        )}
+        buttonText={get("index_hero_button_text", "Забронировать номер")}
         buttonLink="/rooms"
-        imageSrc={get('index_hero_image', '/kaka.jpg')}
+        imageSrc={get("index_hero_image", "/street.jpg")}
         showStats={true}
       />
 
@@ -44,7 +47,7 @@ const Index = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img
-                    src={get('index_about_image', '/kaka.jpg')}
+                    src={get("index_about_image", "/street.jpg")}
                     alt="Hotel 236 meters Interior"
                     className="w-full h-full object-cover"
                   />
@@ -56,16 +59,22 @@ const Index = () => {
             <FadeIn delay={0.2}>
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                  {get('index_about_badge', 'О нашем отеле')}
+                  {get("index_about_badge", "О нашем отеле")}
                 </div>
                 <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                  {get('index_about_title', 'Роскошь в каждой детали')}
+                  {get("index_about_title", "Роскошь в каждой детали")}
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {get('index_about_description_1', 'Отель 236 метров — это не просто место для ночлега, а настоящий оазис комфорта и изысканности.')}
+                  {get(
+                    "index_about_description_1",
+                    "Отель 236 метров — это не просто место для ночлега, а настоящий оазис комфорта и изысканности."
+                  )}
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  {get('index_about_description_2', 'Наш отель сочетает в себе классическую элегантность и современные удобства.')}
+                  {get(
+                    "index_about_description_2",
+                    "Наш отель сочетает в себе классическую элегантность и современные удобства."
+                  )}
                 </p>
                 <Button className="rounded-full px-8" asChild>
                   <Link to="/about">Узнать больше</Link>
@@ -82,13 +91,19 @@ const Index = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                {get('index_rooms_badge', 'Наши номера')}
+                {get("index_rooms_badge", "Наши номера")}
               </div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                {get('index_rooms_title', 'Выберите идеальный номер для вашего пребывания')}
+                {get(
+                  "index_rooms_title",
+                  "Выберите идеальный номер для вашего пребывания"
+                )}
               </h2>
               <p className="text-muted-foreground">
-                {get('index_rooms_description', 'От стандартных номеров до роскошных люксов — мы предлагаем размещение, которое удовлетворит все ваши потребности.')}
+                {get(
+                  "index_rooms_description",
+                  "От стандартных номеров до роскошных люксов — мы предлагаем размещение, которое удовлетворит все ваши потребности."
+                )}
               </p>
             </div>
           </FadeIn>
@@ -116,32 +131,53 @@ const Index = () => {
           <FadeIn>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <div className="inline-block px-3 py-1 rounded-full bg-background text-hotel-brown text-sm mb-4">
-                {get('index_testimonials_badge', 'Отзывы')}
+                {get("index_testimonials_badge", "Отзывы")}
               </div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                {get('index_testimonials_title', 'Что говорят наши гости')}
+                {get("index_testimonials_title", "Что говорят наши гости")}
               </h2>
               <p className="text-muted-foreground">
-                {get('index_testimonials_description', 'Мы гордимся впечатлениями, которые оставляют наши гости')}
+                {get(
+                  "index_testimonials_description",
+                  "Мы гордимся впечатлениями, которые оставляют наши гости"
+                )}
               </p>
             </div>
           </FadeIn>
 
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <TestimonialCard
-              quote={get('index_testimonials_review_1_text', 'Прекрасный отель с безупречным сервисом.')}
-              author={get('index_testimonials_review_1_author', 'Анна К.')}
-              role={get('index_testimonials_review_1_role', 'Бизнес-путешественник')}
+              quote={get(
+                "index_testimonials_review_1_text",
+                "Прекрасный отель с безупречным сервисом."
+              )}
+              author={get("index_testimonials_review_1_author", "Анна К.")}
+              role={get(
+                "index_testimonials_review_1_role",
+                "Бизнес-путешественник"
+              )}
             />
             <TestimonialCard
-              quote={get('index_testimonials_review_2_text', 'Останавливались с семьей на выходные.')}
-              author={get('index_testimonials_review_2_author', 'Сергей и Мария В.')}
-              role={get('index_testimonials_review_2_role', 'Семейный отдых')}
+              quote={get(
+                "index_testimonials_review_2_text",
+                "Останавливались с семьей на выходные."
+              )}
+              author={get(
+                "index_testimonials_review_2_author",
+                "Сергей и Мария В."
+              )}
+              role={get("index_testimonials_review_2_role", "Семейный отдых")}
             />
             <TestimonialCard
-              quote={get('index_testimonials_review_3_text', 'Идеальное место для романтического уикенда.')}
-              author={get('index_testimonials_review_3_author', 'Ольга Д.')}
-              role={get('index_testimonials_review_3_role', 'Праздничный отдых')}
+              quote={get(
+                "index_testimonials_review_3_text",
+                "Идеальное место для романтического уикенда."
+              )}
+              author={get("index_testimonials_review_3_author", "Ольга Д.")}
+              role={get(
+                "index_testimonials_review_3_role",
+                "Праздничный отдых"
+              )}
             />
           </FadeInStagger>
         </div>
@@ -153,10 +189,16 @@ const Index = () => {
           <div className="text-center max-w-3xl mx-auto">
             <FadeInStagger>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                {get('index_cta_title', 'Готовы забронировать идеальный отдых?')}
+                {get(
+                  "index_cta_title",
+                  "Готовы забронировать идеальный отдых?"
+                )}
               </h2>
               <p className="text-white/80 mb-10 text-lg">
-                {get('index_cta_description', 'Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле 236 метров.')}
+                {get(
+                  "index_cta_description",
+                  "Свяжитесь с нами сегодня и позвольте нам помочь спланировать ваше идеальное пребывание в отеле 236 метров."
+                )}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

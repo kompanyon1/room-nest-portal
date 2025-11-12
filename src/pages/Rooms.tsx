@@ -26,7 +26,7 @@ const Rooms = () => {
       <HeroSection
         title="Наши номера"
         subtitle="Откройте для себя идеальное размещение для вашего пребывания.У нас есть все для вашего комфорта."
-        imageSrc="/kaka.jpg"
+        imageSrc="/street.jpg"
         minHeight="min-h-[60vh]"
       />
 

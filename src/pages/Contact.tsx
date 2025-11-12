@@ -26,7 +26,7 @@ const Contact = () => {
       <HeroSection
         title={get('contact_hero_title', 'Свяжитесь с нами')}
         subtitle={get('contact_hero_subtitle', 'Мы всегда рады ответить на ваши вопросы и помочь с бронированием. Используйте любой удобный для вас способ связи.')}
-        imageSrc={get('contact_hero_image', '/kaka.jpg')}
+        imageSrc={get('contact_hero_image', '/street.jpg')}
         minHeight="min-h-[60vh]"
       />
 
