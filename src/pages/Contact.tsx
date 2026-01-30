@@ -47,7 +47,19 @@ const Contact = () => {
                   <ContactItem
                     icon={<MapPin className="h-6 w-6" />}
                     title="Адрес"
-                    details={[get('contact_info_address_1', 'ул. Пушкина 10, Москва'), get('contact_info_address_2', 'Россия, 123456')]}
+                    details={[
+                      get('contact_info_address_1', 'ул. Пушкина 10, Москва'), 
+                      get('contact_info_address_2', 'Россия, 123456'),
+                      <a
+                        key="2gis"
+                        href="https://2gis.ru/ulanude/geo/70000001109680850/107.238348,52.126693"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-hotel-brown hover:text-hotel-brown/80 transition-colors font-medium"
+                      >
+                        Наш 2GIS
+                      </a>
+                    ]}
                   />
 
                   <ContactItem
