@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, LogIn, LogOut, UserCog } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
+import logo from "@/assets/logo.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,10 +49,10 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link
           to="/"
-          className="text-2xl font-serif font-semibold tracking-tight"
+          className="flex items-center"
           onClick={closeMobileMenu}
         >
-          236 метров
+          <img src={logo} alt="236 метров" className="h-12 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
