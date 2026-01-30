@@ -52,7 +52,7 @@ export function Navbar() {
           className="flex items-center"
           onClick={closeMobileMenu}
         >
-          <img src={logo} alt="236 метров" className="h-12 w-auto" />
+          <img src={logo} alt="236 метров" className="h-16 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
