@@ -109,6 +109,16 @@ export function Footer() {
                 </li>
                 <li>
                   <a
+                    href="https://2gis.ru/ulanude/geo/70000001109680850/107.238348,52.126693"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Наш 2GIS
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="#"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
