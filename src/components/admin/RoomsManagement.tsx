@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Trash2, Plus, X } from 'lucide-react';
+import { Loader2, Trash2, Plus, X, Upload } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface Room {
@@ -29,6 +29,7 @@ export const RoomsManagement = () => {
   const [rooms, setRooms] = useState<Room[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
+  const [uploading, setUploading] = useState<string | null>(null);
   const [newAmenity, setNewAmenity] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
@@ -166,9 +167,35 @@ export const RoomsManagement = () => {
     }
   };
 
-  const addImage = async (roomId: string, imageUrl: string) => {
+  const handleImageUpload = async (roomId: string, file: File) => {
+    setUploading(roomId);
+    
+    const fileExt = file.name.split('.').pop();
+    const fileName = `rooms/${roomId}/${Date.now()}.${fileExt}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from('images')
+      .upload(fileName, file);
+
+    if (uploadError) {
+      toast({
+        title: "Ошибка загрузки",
+        description: uploadError.message,
+        variant: "destructive"
+      });
+      setUploading(null);
+      return;
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('images')
+      .getPublicUrl(fileName);
+
     const room = rooms.find(r => r.id === roomId);
-    if (!room) return;
+    if (!room) {
+      setUploading(null);
+      return;
+    }
 
     const maxOrder = Math.max(0, ...room.images.map(img => img.order));
     
@@ -176,7 +203,7 @@ export const RoomsManagement = () => {
       .from('room_images')
       .insert({
         room_id: roomId,
-        image_url: imageUrl,
+        image_url: publicUrl,
         display_order: maxOrder + 1
       });
 
@@ -189,10 +216,11 @@ export const RoomsManagement = () => {
     } else {
       toast({
         title: "Добавлено",
-        description: "Изображение добавлено"
+        description: "Изображение загружено и добавлено"
       });
       loadRooms();
     }
+    setUploading(null);
   };
 
   if (loading) {
@@ -345,20 +373,37 @@ export const RoomsManagement = () => {
                 ))}
               </div>
               <div className="flex gap-2">
-                <Input
-                  placeholder="URL изображения"
-                  id={`new-image-${room.id}`}
-                />
-                <Button onClick={() => {
-                  const input = document.getElementById(`new-image-${room.id}`) as HTMLInputElement;
-                  const url = input?.value;
-                  if (url) {
-                    addImage(room.id, url);
-                    input.value = '';
-                  }
-                }}>
-                  Добавить
+                <Button
+                  variant="outline"
+                  onClick={() => document.getElementById(`file-${room.id}`)?.click()}
+                  disabled={uploading === room.id}
+                  className="flex-1"
+                >
+                  {uploading === room.id ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                      Загрузка...
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="h-4 w-4 mr-2" />
+                      Загрузить изображение
+                    </>
+                  )}
                 </Button>
+                <input
+                  id={`file-${room.id}`}
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      handleImageUpload(room.id, file);
+                      e.target.value = '';
+                    }
+                  }}
+                  className="hidden"
+                />
               </div>
             </div>
 
