@@ -33,158 +33,81 @@ const Contact = () => {
       {/* Contact Information */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <FadeIn>
-              <div>
-                <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
-                  {get('contact_info_badge', 'Наши контакты')}
-                </div>
-                <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-8">
-                  {get('contact_info_title', 'Как с нами связаться')}
-                </h2>
-
-                <div className="space-y-8">
-                  <ContactItem
-                    icon={<MapPin className="h-6 w-6" />}
-                    title="Адрес"
-                    details={[
-                      get('contact_info_address_1', 'ул. Пушкина 10, Москва'), 
-                      get('contact_info_address_2', 'Россия, 123456'),
-                      <a
-                        key="2gis"
-                        href="https://2gis.ru/ulanude/geo/70000001109680850/107.238348,52.126693"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-hotel-brown hover:text-hotel-brown/80 transition-colors font-medium"
-                      >
-                        Наш 2GIS
-                      </a>
-                    ]}
-                  />
-
-                  <ContactItem
-                    icon={<Phone className="h-6 w-6" />}
-                    title="Телефон"
-                    details={[
-                      <a
-                        key="phone"
-                        href={`tel:${get('contact_info_phone', '+74951234567').replace(/[^0-9+]/g, '')}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {get('contact_info_phone', '+7 (495) 123-45-67')}
-                      </a>,
-                    ]}
-                  />
-
-                  <ContactItem
-                    icon={<Mail className="h-6 w-6" />}
-                    title="Email"
-                    details={[
-                      <a
-                        key="email"
-                        href={`mailto:${get('contact_info_email_1', 'info@elegant.ru')}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {get('contact_info_email_1', 'info@elegant.ru')}
-                      </a>,
-                      <a
-                        key="booking"
-                        href={`mailto:${get('contact_info_email_2', 'booking@elegant.ru')}`}
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {get('contact_info_email_2', 'booking@elegant.ru')}
-                      </a>,
-                    ]}
-                  />
-
-                  <ContactItem
-                    icon={<Clock className="h-6 w-6" />}
-                    title="Часы работы"
-                    details={[
-                      get('contact_info_hours_1', 'Регистрация: 24/7'),
-                      get('contact_info_hours_2', 'Ресторан: 6:30 - 23:00'),
-                      get('contact_info_hours_3', 'Спа-центр: 9:00 - 21:00'),
-                    ]}
-                  />
-                </div>
+          <FadeIn>
+            <div className="max-w-2xl">
+              <div className="inline-block px-3 py-1 rounded-full bg-hotel-beige text-hotel-brown text-sm mb-4">
+                {get('contact_info_badge', 'Наши контакты')}
               </div>
-            </FadeIn>
+              <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-8">
+                {get('contact_info_title', 'Как с нами связаться')}
+              </h2>
 
-            <FadeIn delay={0.2}>
-              <div className="bg-hotel-beige p-8 rounded-xl">
-                <h3 className="font-serif text-2xl font-semibold mb-6">
-                  {get('contact_form_title', 'Отправить сообщение')}
-                </h3>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Ваше имя
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="w-full rounded-md border-hotel-taupe bg-background/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-hotel-brown"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="w-full rounded-md border-hotel-taupe bg-background/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-hotel-brown"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium mb-2"
+              <div className="space-y-8">
+                <ContactItem
+                  icon={<MapPin className="h-6 w-6" />}
+                  title="Адрес"
+                  details={[
+                    get('contact_info_address_1', 'ул. Пушкина 10, Москва'), 
+                    get('contact_info_address_2', 'Россия, 123456'),
+                    <a
+                      key="2gis"
+                      href="https://2gis.ru/ulanude/geo/70000001109680850/107.238348,52.126693"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-hotel-brown hover:text-hotel-brown/80 transition-colors font-medium"
                     >
-                      Тема
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="w-full rounded-md border-hotel-taupe bg-background/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-hotel-brown"
-                      required
-                    />
-                  </div>
+                      Наш 2GIS
+                    </a>
+                  ]}
+                />
 
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-2"
+                <ContactItem
+                  icon={<Phone className="h-6 w-6" />}
+                  title="Телефон"
+                  details={[
+                    <a
+                      key="phone"
+                      href={`tel:${get('contact_info_phone', '+74951234567').replace(/[^0-9+]/g, '')}`}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Сообщение
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full rounded-md border-hotel-taupe bg-background/80 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-hotel-brown"
-                      required
-                    ></textarea>
-                  </div>
+                      {get('contact_info_phone', '+7 (495) 123-45-67')}
+                    </a>,
+                  ]}
+                />
 
-                  <Button type="submit" className="w-full">
-                    <Send className="mr-2 h-4 w-4" />
-                    Отправить сообщение
-                  </Button>
-                </form>
+                <ContactItem
+                  icon={<Mail className="h-6 w-6" />}
+                  title="Email"
+                  details={[
+                    <a
+                      key="email"
+                      href={`mailto:${get('contact_info_email_1', 'info@elegant.ru')}`}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {get('contact_info_email_1', 'info@elegant.ru')}
+                    </a>,
+                    <a
+                      key="booking"
+                      href={`mailto:${get('contact_info_email_2', 'booking@elegant.ru')}`}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {get('contact_info_email_2', 'booking@elegant.ru')}
+                    </a>,
+                  ]}
+                />
+
+                <ContactItem
+                  icon={<Clock className="h-6 w-6" />}
+                  title="Часы работы"
+                  details={[
+                    get('contact_info_hours_1', 'Регистрация: 24/7'),
+                    get('contact_info_hours_2', 'Ресторан: 6:30 - 23:00'),
+                    get('contact_info_hours_3', 'Спа-центр: 9:00 - 21:00'),
+                  ]}
+                />
               </div>
-            </FadeIn>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
